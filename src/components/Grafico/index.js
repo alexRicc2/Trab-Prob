@@ -1,7 +1,7 @@
 import React from 'react'
 import { Chart } from 'react-charts'
  
-export function MyChart() {
+export function MyChart(props) {
 
   const series = React.useMemo(
     () => ({
@@ -11,19 +11,19 @@ export function MyChart() {
   )
 
 
-  const data = React.useMemo(
-    () => [
-      {
-        label: 'Series 1',
-        data: [[0, 1], [1, 2], [2, 4], [3, 2], [4, 7]]
-      },
-      {
-        label: 'Series 2',
-        data: [[0, 3], [1, 1], [2, 5], [3, 6], [4, 4]]
-      }
-    ],
-    []
-  )
+  // const data = React.useMemo(
+  //   () => [
+  //     {
+  //       label: 'Series 1',
+  //       data: [[0, 1], [1, 2], [2, 4], [3, 2], [4, 7]]
+  //     },
+  //     {
+  //       label: 'Series 2',
+  //       data: [[0, 3], [1, 1], [2, 5], [3, 6], [4, 4]]
+  //     }
+  //   ],
+  //   []
+  // )
  
   const axes = React.useMemo(
     () => [
@@ -38,11 +38,11 @@ export function MyChart() {
     // space of its parent element automatically
     <div
       style={{
-        width: '400px',
-        height: '300px'
+        width: '700px',
+        height: '500px'
       }}
     >
-      <Chart data={data} series={series} axes={axes} tooltip/>
+      <Chart data={props.data} series={series} axes={axes} tooltip/>
       
     </div>
   )
