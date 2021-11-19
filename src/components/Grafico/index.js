@@ -43,7 +43,7 @@ export function MyChart() {
       }}
     >
       <Chart data={data} series={series} axes={axes} tooltip/>
-      <Chart data={data} axes={axes} tooltip/>
+      
     </div>
   )
   
