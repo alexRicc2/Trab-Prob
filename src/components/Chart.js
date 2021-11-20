@@ -15,6 +15,7 @@ export default function Chart(props) {
           { primary: true, type: "linear", position: "bottom" },
           { type: "linear", position: "left" },
         ]}
+        tooltip
       ></ReactChart>
     </div>
   );
