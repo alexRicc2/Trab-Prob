@@ -13,6 +13,7 @@ export default function Contagio() {
       if (i > 1) Total[i] = Total[i - 1];
       for (var j = 0; j < 30; j += T) {
         Total[i] = Total[i] + Total[i] * R;
+        console.log(i,Total[i]);
       }
       aux.push([i, Total[i]]);
     }
