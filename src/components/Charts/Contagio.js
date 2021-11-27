@@ -17,13 +17,13 @@ export default function Contagio() {
       }
       aux.push([i, Total[i]]);
     }
-    setDados([{ label: "asdasd", data: aux }]);
+    setDados([{ label: "Qtd. Infectados", data: aux }]);
     console.log(aux);
   };
 
   return (
     <div>
-      <Chart data={dados} type="line" />
+      <Chart data={dados} type="line"/>
       <Rform onSubmit={handleSubmit}></Rform>
     </div>
   );

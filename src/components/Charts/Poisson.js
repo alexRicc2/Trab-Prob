@@ -21,12 +21,12 @@ export default function Poisson() {
     for (var i = 0; i < 3 * media; i++) {
       aux.push([i, poisson(media, i)]);
     }
-    setDados([{ label: "asdasd", data: aux }]);
+    setDados([{ label: "Probabilidade", data: aux }]);
   };
 
   return (
     <div>
-      <Chart data={dados} type="bar" />
+      <Chart data={dados} type="bar"/>
       <Pform onSubmit={handleSubmit}></Pform>
     </div>
   );
