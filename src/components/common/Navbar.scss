@@ -1,0 +1,19 @@
+@import "../../variables";
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  padding:2.25rem;
+  &__h1,&__sobre{
+    text-decoration: none;
+  }
+  &__h1{
+    color:$primary;
+    font-weight: bold;
+    font-family: 'Overpass Mono', monospace;
+    font-size:2rem;
+  }
+  &__sobre{
+    color:black;
+    font-size:1.45rem;
+  }
+}
