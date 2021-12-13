@@ -1,0 +1,31 @@
+@import "../../variables";
+.header {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient($gradient, #fff 65vh);
+  &__content {
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    &__text{
+      width: 60%;
+      h2{
+        margin-bottom:2.5rem;
+      }
+      p{
+        font-size:1.5rem;
+      }
+    }
+    &__buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      .button {
+        font-size: 2rem;
+        width: 100%;
+      }
+    }
+  }
+}
