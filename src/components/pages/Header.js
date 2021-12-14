@@ -18,7 +18,7 @@ export default function Header() {
           </p>
         </div>
         <div className="header__content__buttons">
-          <Button>Nova análise</Button>
+          <Button to="/nova-analise">Nova análise</Button>
           <Button>Doenças salvas</Button>
         </div>
       </div>
