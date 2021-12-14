@@ -1,8 +1,17 @@
-@import '../../variables';
-.button{
+@import "../../variables";
+.button {
   background-color: $primary;
-  color:white;
-  padding:0.7rem 2rem;
-  border:none;
+  color: white;
+  padding: 0.7rem 2rem;
+  border: none;
   border-radius: 15px;
+  &:disabled,
+  &:focus:disabled,
+  &:hover:disabled,
+  &:active:disabled {
+    background: #ccc;
+    border-color: #ccc;
+    color: #666666;
+    cursor: not-allowed;
+  }
 }
