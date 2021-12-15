@@ -1,0 +1,34 @@
+.backdrop{
+  position: fixed;
+  width:100%;
+  height:100%;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.493);
+}
+.modal{
+  background-color: white;
+  position:fixed;
+  top:33%;
+  left:30vw;
+  z-index:2;
+  padding:2.5rem;
+  width:40%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap:1.5rem;
+  p{
+    font-size:1.3rem;
+  }
+  .button{
+    font-size:1.3rem;
+    width:10rem;
+    align-self: flex-end;
+  }
+}
+@media screen and (max-width: 1294px) {
+  .modal{
+    width:75%;
+    left:12.5vw;
+  }
+}

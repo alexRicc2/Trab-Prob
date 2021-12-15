@@ -2,7 +2,8 @@ import React from "react";
 import Navbar from "../common/Navbar";
 import Footer from "../common/Footer";
 import Button from "../common/Button";
-import { useReducer } from "react";
+import Modal from "../common/Modal";
+import { useReducer, useState } from "react";
 import "./NovaAnalise.scss";
 
 const formReducer = (state, action) => {
@@ -50,7 +51,9 @@ const formReducer = (state, action) => {
   };
 };
 
-export default function NovaAnalise() {
+export default function NovaAnalise(props) {
+  const [error, setError] = useState(undefined);
+
   const [formState, dispatchForm] = useReducer(formReducer, {
     nome: "",
     taxa: "",
@@ -61,13 +64,23 @@ export default function NovaAnalise() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    for (let aux of Object.entries(formState)){
-      if(aux[1]===""){
-        alert("input vazio AAAAAAAAAAAAAAAAAAA")
-        return
+    for (let aux of Object.entries(formState)) {
+      if (aux[1] === "") {
+        setError({ h2: "Erro.", p: "Todos os campos devem ser preenchidos." });
+        return;
       }
     }
+    if (
+      formState.taxa < 0 ||
+      formState.mortalidade < 0 ||
+      formState.tempoAgeVetor < 0 ||
+      formState.tempoTornarVetor < 0
+    ) {
+      setError({ h2: "Erro.", p: "Valores devem ser positivos." });
+      return;
+    }
     alert("submitado");
+    // props.onSubmit(formState)
   };
 
   const handleNameChange = (event) => {
@@ -92,6 +105,15 @@ export default function NovaAnalise() {
 
   return (
     <section className="nova-analise">
+      {error && (
+        <Modal
+          h2={error.h2}
+          p={error.p}
+          onClick={() => {
+            setError(undefined);
+          }}
+        />
+      )}
       <Navbar />
       <form onSubmit={handleSubmit}>
         <div className="nova-analise__big-input">
@@ -100,23 +122,40 @@ export default function NovaAnalise() {
         </div>
         <div className="nova-analise__inputs">
           <div>
-            <label htmlFor="tempo">Tempo que age como vetor</label>
-            <input id="tempo" onChange={handleTimeChange}></input>
+            <label htmlFor="tempo">Tempo que age como vetor (dias)</label>
+            <input
+              step="0.0001"
+              id="tempo"
+              type="number"
+              onChange={handleTimeChange}
+            ></input>
           </div>
           <div>
             <label htmlFor="taxa">Taxa de transmissão</label>
-            <input id="taxa" onChange={handleRateChange}></input>
+            <input
+              step="0.0001"
+              id="taxa"
+              type="number"
+              onChange={handleRateChange}
+            ></input>
           </div>
           <div>
-            <label htmlFor="mortalidade">Mortalidade</label>
-            <input id="mortalidade" onChange={handleDeathChange}></input>
+            <label htmlFor="mortalidade">Mortalidade (porcentagem)</label>
+            <input
+              step="0.0001"
+              id="mortalidade"
+              type="number"
+              onChange={handleDeathChange}
+            ></input>
           </div>
           <div>
             <label htmlFor="tempo-vetor">
               Tempo para se tornar vetor após infecção
             </label>
             <input
+              step="0.0001"
               id="tempo-vetor"
+              type="number"
               onChange={handleInfectionTimeChange}
             ></input>
           </div>
