@@ -80,6 +80,18 @@ export default function NovaAnalise(props) {
       return;
     }
     alert("submitado");
+    const doencasLocal = JSON.parse(localStorage.getItem('doencas')) || []
+    const novaDoenca = {
+      nome: formState.nome,
+      taxa: formState.taxa,
+      mortalidade: formState.mortalidade,
+      vetor: formState.tempoAgeVetor,
+      tornaVetor: formState.tempoTornarVetor,
+      data: new Date()
+    }
+    const doencasAtualizadas = [...doencasLocal, novaDoenca]
+    localStorage.setItem('doencas', JSON.stringify(doencasAtualizadas))
+
     // props.onSubmit(formState)
   };
 
