@@ -94,16 +94,7 @@ export const DoencaProvider = ({ children }) => {
     dispatchForm({ type: "INFECTION_TIME_INPUT", val: doenca.tempoTornaVetor })
     navigate('/estatisticas')
   }
-  function limpaContexto(doenca){
-    console.log(doenca)
-    console.log('chamou')
-    dispatchForm({ type: "NAME_INPUT", val: "" })
-    dispatchForm({ type: "ACTION_TIME_INPUT", val: ""})
-    dispatchForm({ type: "RATE_INPUT", val: "" })
-    dispatchForm({ type: "DEATH_INPUT", val: "" })
-    dispatchForm({ type: "INFECTION_TIME_INPUT", val: "" })
-    
-  }
+
   
   return (
     <DoencaContext.Provider value={{
@@ -115,7 +106,6 @@ export const DoencaProvider = ({ children }) => {
       handleDeathChange,
       handleInfectionTimeChange,
       doencaSalva,
-      limpaContexto
       }}>
 
       {children}

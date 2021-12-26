@@ -19,13 +19,13 @@ export default function NovaAnalise(props) {
     handleDeathChange,
     handleTimeChange,
     handleInfectionTimeChange,
-    limpaContexto
+    dispatchForm
   } = useContext(DoencaContext);
 
   const navigate = useNavigate();
 
   useEffect(()=>{
-    limpaContexto();
+    dispatchForm({type: ""});
   },[])
 
   const handleSubmit = (event) => {
