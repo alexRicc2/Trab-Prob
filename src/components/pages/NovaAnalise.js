@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../common/Navbar";
 import Footer from "../common/Footer";
 import Button from "../common/Button";
@@ -10,6 +10,7 @@ import "./NovaAnalise.scss";
 
 
 export default function NovaAnalise(props) {
+
   const [error, setError] = useState(undefined);
   const {
     formState,
@@ -17,11 +18,15 @@ export default function NovaAnalise(props) {
     handleRateChange,
     handleDeathChange,
     handleTimeChange,
-    handleInfectionTimeChange
+    handleInfectionTimeChange,
+    limpaContexto
   } = useContext(DoencaContext);
 
   const navigate = useNavigate();
 
+  useEffect(()=>{
+    limpaContexto();
+  },[])
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -52,7 +57,7 @@ export default function NovaAnalise(props) {
     }
     const doencasAtualizadas = [...doencasLocal, novaDoenca]
     localStorage.setItem('doencas', JSON.stringify(doencasAtualizadas))
-    navigate('/estatisticas');
+     navigate('/estatisticas');
     // props.onSubmit(formState)
   };
   return (
