@@ -1,66 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../common/Navbar";
 import Footer from "../common/Footer";
 import Button from "../common/Button";
 import Modal from "../common/Modal";
-import { useReducer, useState } from "react";
+import { useState, useContext} from "react";
+import { DoencaContext } from "../common/Doenca";
+import { useNavigate } from "react-router-dom";
 import "./NovaAnalise.scss";
 
-const formReducer = (state, action) => {
-  if (action.type === "NAME_INPUT") {
-    let { nome, ...novoEstado } = state;
-    return {
-      nome: action.val,
-      ...novoEstado,
-    };
-  }
-  if (action.type === "RATE_INPUT") {
-    let { taxa, ...novoEstado } = state;
-    return {
-      taxa: action.val,
-      ...novoEstado,
-    };
-  }
-  if (action.type === "DEATH_INPUT") {
-    let { mortalidade, ...novoEstado } = state;
-    return {
-      mortalidade: action.val,
-      ...novoEstado,
-    };
-  }
-  if (action.type === "ACTION_TIME_INPUT") {
-    let { tempoAgeVetor, ...novoEstado } = state;
-    return {
-      tempoAgeVetor: action.val,
-      ...novoEstado,
-    };
-  }
-  if (action.type === "INFECTION_TIME_INPUT") {
-    let { tempoTornarVetor, ...novoEstado } = state;
-    return {
-      tempoTornarVetor: action.val,
-      ...novoEstado,
-    };
-  }
-  return {
-    nome: "",
-    taxa: "",
-    mortalidade: "",
-    tempoAgeVetor: "",
-    tempoTornarVetor: "",
-  };
-};
 
 export default function NovaAnalise(props) {
-  const [error, setError] = useState(undefined);
 
-  const [formState, dispatchForm] = useReducer(formReducer, {
-    nome: "",
-    taxa: "",
-    mortalidade: "",
-    tempoAgeVetor: "",
-    tempoTornarVetor: "",
-  });
+  const [error, setError] = useState(undefined);
+  const {
+    formState,
+    handleNameChange,
+    handleRateChange,
+    handleDeathChange,
+    handleTimeChange,
+    handleInfectionTimeChange,
+    dispatchForm
+  } = useContext(DoencaContext);
+
+  const navigate = useNavigate();
+
+  useEffect(()=>{
+    console.log('UseEffect rodou')
+    dispatchForm({type: ""});
+  },[dispatchForm])
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -85,36 +52,15 @@ export default function NovaAnalise(props) {
       nome: formState.nome,
       taxa: formState.taxa,
       mortalidade: formState.mortalidade,
-      vetor: formState.tempoAgeVetor,
-      tornaVetor: formState.tempoTornarVetor,
+      tempoAgevetor: formState.tempoAgeVetor,
+      tempoTornaVetor: formState.tempoTornarVetor,
       data: new Date()
     }
     const doencasAtualizadas = [...doencasLocal, novaDoenca]
     localStorage.setItem('doencas', JSON.stringify(doencasAtualizadas))
-
+     navigate('/estatisticas');
     // props.onSubmit(formState)
   };
-
-  const handleNameChange = (event) => {
-    dispatchForm({ type: "NAME_INPUT", val: event.target.value });
-  };
-
-  const handleTimeChange = (event) => {
-    dispatchForm({ type: "ACTION_TIME_INPUT", val: event.target.value });
-  };
-
-  const handleRateChange = (event) => {
-    dispatchForm({ type: "RATE_INPUT", val: event.target.value });
-  };
-
-  const handleDeathChange = (event) => {
-    dispatchForm({ type: "DEATH_INPUT", val: event.target.value });
-  };
-
-  const handleInfectionTimeChange = (event) => {
-    dispatchForm({ type: "INFECTION_TIME_INPUT", val: event.target.value });
-  };
-
   return (
     <section className="nova-analise">
       {error && (
