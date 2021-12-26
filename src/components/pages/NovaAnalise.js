@@ -25,8 +25,9 @@ export default function NovaAnalise(props) {
   const navigate = useNavigate();
 
   useEffect(()=>{
+    console.log('UseEffect rodou')
     dispatchForm({type: ""});
-  },[])
+  },[dispatchForm])
 
   const handleSubmit = (event) => {
     event.preventDefault();
