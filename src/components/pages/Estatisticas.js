@@ -10,7 +10,9 @@ export default function Estatisticas(){
   return(
     <>
     <Navbar/>
-    {JSON.stringify(formState)}
+    <p>Nome: {formState.nome}</p>
+    <p>Mortalidade: {formState.mortalidade}</p>
+    <p>Taxa: {formState.taxa}</p>
     <Footer/>
     </>
   )
