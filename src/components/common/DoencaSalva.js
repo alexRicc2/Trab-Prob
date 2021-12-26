@@ -1,11 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './DoencaSalva.scss';
+import { DoencaContext } from './Doenca';
 
-export default function DoencaSalva({data, nome}){
+export default function DoencaSalva({data, nome, doenca}){
+ 
+  const { doencaSalva } = useContext(DoencaContext);
+
   return(
-    <div className='salvo'>
+    <button className='salvo' onClick={() => doencaSalva(doenca)}>
       <p className='data'>{data}</p>
       <h1 className='doenca'>{nome}</h1>
-    </div>
+    </button>
   )
 }
