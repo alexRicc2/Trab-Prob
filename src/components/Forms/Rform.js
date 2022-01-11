@@ -24,11 +24,11 @@ export default function Rform(props){
   return(
     <form onSubmit={handleSubmit}>
       <label htmlFor="r">R</label>
-      <input type="number" onChange={handleR} id="r"></input>
+      <input type="number" step="0.0001" onChange={handleR} id="r"></input>
       <label htmlFor="t">T</label>
-      <input type="number" onChange={handleT} id="t"></input>
+      <input type="number" step="0.0001" onChange={handleT} id="t"></input>
       <label htmlFor="recupera">recupera</label>
-      <input type="number" onChange={handleRecupera} id="recupera"></input>
+      <input type="number" step="0.0001" onChange={handleRecupera} id="recupera"></input>
       <button type="submit">submit</button>
     </form>
   )
