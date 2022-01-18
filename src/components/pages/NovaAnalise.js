@@ -58,7 +58,7 @@ export default function NovaAnalise(props) {
     }
     const doencasAtualizadas = [...doencasLocal, novaDoenca]
     localStorage.setItem('doencas', JSON.stringify(doencasAtualizadas))
-     navigate('/estatisticas');
+     navigate('/resultados');
     // props.onSubmit(formState)
   };
   return (

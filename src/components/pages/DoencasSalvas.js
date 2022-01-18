@@ -26,9 +26,10 @@ export default function DoencasSalvas(){
           nome={doenca.nome} 
           data={ ajustaData(doenca.data)}
           doenca={doenca}
+          className="secaoDoencas__card"
         />))}
     </section>
-    <Footer/>
+    <Footer className="secao-doencas-footer"/>
     </>
   )
 }
