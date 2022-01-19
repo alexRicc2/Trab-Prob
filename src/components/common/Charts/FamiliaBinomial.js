@@ -14,23 +14,25 @@ export default function FamiliaBinomial(){
 
 
   const [dados, setDados] = useState([]);
-  const handleSubmit = (R,T,contaminados, populacao, familia) => {
+  const [estimativaInfectadosPos2semana, setEstimativaInfectadosPos2semana] = useState(0);
+  const handleSubmit = (R,contaminados, populacao, familia) => {
     
     //necessario alterar o contagio da doença
     let aux = [];
     let Total = [];
     Total[1] = contaminados;
     
-    for (let i = 1; i <= T; i++) {
+    for (let i = 1; i <= 2; i++) {
       if (i > 1) Total[i] = Total[i - 1];
 
-      for (let j = 0; j < 4; j++) {
+      
+        console.log('total: ',Total[i])
         Total[i] = Total[i] + Total[i] * R;
-      }
-
-     
+         
     }
-    const  contaminadosAfter = Total[T];
+    const  contaminadosAfter = Total[2];
+    setEstimativaInfectadosPos2semana(contaminadosAfter)
+    console.log('after: ',contaminadosAfter)
     const P = contaminadosAfter / populacao;
     let binomial = []
     console.log('P:',P);
@@ -48,6 +50,7 @@ export default function FamiliaBinomial(){
   return (
     <div>
       <Chart data={dados} type="bar" tooltip/>
+      <p>Estimativa de infectados após 2 semanas: {estimativaInfectadosPos2semana}</p>
       <Fform onSubmit={handleSubmit}></Fform>
     </div>
   )

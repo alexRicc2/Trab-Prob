@@ -5,8 +5,8 @@ import Button from '../Button';
 export function Fform({onSubmit}){
 
   const [ familia, setFamilia] = useState(10);
-  const [ populacao, setPopulacao] = useState(100000);
-  const [ contaminados, setContaminados] = useState(10);
+  const [ populacao, setPopulacao] = useState(10000);
+  const [ contaminados, setContaminados] = useState(1000);
   const {formState} = useContext(DoencaContext);
   const handlePopulacao = e =>{
     const numero = Number(e.target.value)
@@ -26,7 +26,7 @@ export function Fform({onSubmit}){
   
   const handleSubmit = (e) => {
     e.preventDefault()
-    onSubmit(formState.taxa,formState.tempoAgeVetor,contaminados,populacao,familia)
+    onSubmit(formState.taxa,contaminados,populacao,familia)
   }
 
 
@@ -37,8 +37,7 @@ export function Fform({onSubmit}){
       <div>
       <label htmlFor="populacao" >População</label>
       <input id="populacao" type="number" onChange={handlePopulacao} value={populacao}/>
-      </div>
-      <div>
+      
       <label htmlFor="contaminados">Contaminados</label>
       <input id="contaminados" type="number" onChange={handleContaminados} value={contaminados}/>
       </div>
