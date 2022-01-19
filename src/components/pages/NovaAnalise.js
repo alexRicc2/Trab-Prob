@@ -36,7 +36,7 @@ export default function NovaAnalise(props) {
       localStorage.setItem('doencas', JSON.stringify(doencasAtualizadas))
     }
 
-  },[dispatchForm,metodo,formState.nome])
+  },[dispatchForm,metodo])
 
   const handleSubmit = (event) => {
     event.preventDefault();
