@@ -3,7 +3,7 @@ import Button from "../Button";
 export function Pform(props) {
 
   
-  const [infectados, setInfectados]= useState("");
+  const [infectados, setInfectados]= useState(20);
  
 
   const handleSubmit = (event)=>{
@@ -17,7 +17,9 @@ export function Pform(props) {
     <form onSubmit={handleSubmit}>
       <div>
       <label htmlFor="infectados">Infectados</label>
-      <input onChange={(e)=>setInfectados(e.target.value)}></input>
+      <input 
+      value={infectados}
+      onChange={(e)=>setInfectados(e.target.value)}></input>
       </div>
       <Button type="submit">submit</Button>
     </form>
