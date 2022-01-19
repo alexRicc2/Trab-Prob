@@ -59,12 +59,12 @@ export default function Resultados(props) {
           setGrafico(e.target.value)
         }}
         >
+          <option value="poisson">
+            Poisson mortes
+          </option>
           <option value="progressao">Progressão da Doença</option>
           <option value="sala fechada">
             Sala fechada
-          </option>
-          <option value="poisson">
-            Poisson mortes
           </option>
         </select>
         {grafico === 'progressao' &&
