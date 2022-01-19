@@ -22,6 +22,20 @@ const handlePush = (R, aux) => {
   // console.log(k-1);
 };
 
+const porcentMortes = (media) => {
+  var L = Math.exp(-media);
+  var p = 1;
+  var k = 0;
+
+  do {
+    k++;
+    p *= Math.random();
+  } while (p > L);
+
+  console.log(k-1);
+  return k-1
+};
+
 export default function Contagio() {
 
   var total=10;
@@ -46,8 +60,11 @@ export default function Contagio() {
       }
       plot.push([i, aux.length]);
     }
+    var percent=porcentMortes(1)//1% chance de morte
     setDados([{ label: "Qtd. Infectados", data: plot }]);
     console.log("total de infectados: "+total)
+    console.log("porcentagem mortes: "+percent)
+    console.log("total mortos: "+(percent/100)*total)
   };
   useEffect( ()=> handleSubmit(formState?.taxa, formState?.tempoAgeVetor),[formState?.taxa, formState?.tempoAgeVetor])
 
