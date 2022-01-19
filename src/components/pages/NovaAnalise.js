@@ -5,7 +5,7 @@ import Button from "../common/Button";
 import Modal from "../common/Modal";
 import { useState, useContext} from "react";
 import { DoencaContext } from "../common/Doenca";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./NovaAnalise.scss";
 
 
@@ -23,11 +23,20 @@ export default function NovaAnalise(props) {
   } = useContext(DoencaContext);
 
   const navigate = useNavigate();
+  const { metodo } = useParams();
 
   useEffect(()=>{
-    console.log('UseEffect rodou')
-    dispatchForm({type: ""});
-  },[dispatchForm])
+    if(metodo === 'create'){
+      dispatchForm({type: ""});
+      console.log('form limpado')
+    }else if(metodo === 'edit'){
+      const doencasLocal = JSON.parse(localStorage.getItem('doencas')) || []
+      const doencasExcluiRepetido = doencasLocal.filter(doenca => doenca.nome !== formState.nome)
+      const doencasAtualizadas = [...doencasExcluiRepetido]
+      localStorage.setItem('doencas', JSON.stringify(doencasAtualizadas))
+    }
+
+  },[dispatchForm,metodo,formState.nome])
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -46,7 +55,6 @@ export default function NovaAnalise(props) {
       setError({ h2: "Erro.", p: "Valores devem ser positivos." });
       return;
     }
-    alert("submitado");
     const doencasLocal = JSON.parse(localStorage.getItem('doencas')) || []
     const novaDoenca = {
       nome: formState.nome,
@@ -56,8 +64,11 @@ export default function NovaAnalise(props) {
       tempoTornaVetor: formState.tempoTornarVetor,
       data: new Date()
     }
+  
     const doencasAtualizadas = [...doencasLocal, novaDoenca]
     localStorage.setItem('doencas', JSON.stringify(doencasAtualizadas))
+
+
      navigate('/resultados');
     // props.onSubmit(formState)
   };
@@ -76,7 +87,7 @@ export default function NovaAnalise(props) {
       <form onSubmit={handleSubmit}>
         <div className="nova-analise__big-input">
           <label htmlFor="nome">Nome da doença: </label>
-          <input id="nome" onChange={handleNameChange}></input>
+          <input id="nome" value={formState.nome} onChange={handleNameChange}></input>
         </div>
         <div className="nova-analise__inputs">
           <div>
@@ -85,6 +96,7 @@ export default function NovaAnalise(props) {
               step="0.0001"
               id="tempo"
               type="number"
+              value={formState.tempoAgeVetor}
               onChange={handleTimeChange}
             ></input>
           </div>
@@ -94,6 +106,7 @@ export default function NovaAnalise(props) {
               step="0.0001"
               id="taxa"
               type="number"
+              value={formState.taxa}
               onChange={handleRateChange}
             ></input>
           </div>
@@ -103,6 +116,7 @@ export default function NovaAnalise(props) {
               step="0.0001"
               id="mortalidade"
               type="number"
+              value={formState.mortalidade}
               onChange={handleDeathChange}
             ></input>
           </div>
@@ -114,6 +128,7 @@ export default function NovaAnalise(props) {
               step="0.0001"
               id="tempo-vetor"
               type="number"
+              value={formState.tempoTornarVetor}
               onChange={handleInfectionTimeChange}
             ></input>
           </div>

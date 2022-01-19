@@ -88,11 +88,11 @@ export const DoencaProvider = ({ children }) => {
     console.log(doenca)
     console.log('chamou')
     dispatchForm({ type: "NAME_INPUT", val: doenca.nome })
-    dispatchForm({ type: "ACTION_TIME_INPUT", val: doenca.tempoAgeVetor})
+    dispatchForm({ type: "ACTION_TIME_INPUT", val: doenca.tempoAgevetor})
     dispatchForm({ type: "RATE_INPUT", val: doenca.taxa })
     dispatchForm({ type: "DEATH_INPUT", val: doenca.mortalidade })
     dispatchForm({ type: "INFECTION_TIME_INPUT", val: doenca.tempoTornaVetor })
-    navigate('/estatisticas')
+    navigate('/resultados')
   }
 
   

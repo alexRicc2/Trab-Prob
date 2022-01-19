@@ -13,7 +13,7 @@ function App() {
       <DoencaProvider>
         <Routes>
           <Route path="/" element={<Header />} />
-          <Route path="/nova-analise" element={<NovaAnalise />} />
+          <Route path="/nova-analise/:metodo" element={<NovaAnalise />} />
           <Route path="/sobre" element={<Sobre />} />
           <Route path="/doencas-salvas" element={<DoencasSalvas />} />
           <Route path="/estatisticas" element={<Estatisticas/>} />
