@@ -101,7 +101,7 @@ export default function Resultados(props) {
           <FamiliaBinomial 
           />
           <Label
-              title="Gráfico demonstra a probabilidade de cada quantidade de membros da familia estarem infectados após 2 semanas de contágio, através de distribuição binomial"
+              title="Gráfico demonstra a probabilidade de cada quantidade de membros da família estarem infectados após 2 semanas de contágio, através de distribuição binomial"
             />
           </div>
         }
@@ -110,7 +110,7 @@ export default function Resultados(props) {
           <div style={{ position: 'relative' }}>
           <Poisson />
           <Label
-              title="Dado uma quantidade de infectados este gráfico demonstra a probabilidade de quantas infectados morrerão, levando em consideração dados passados como taxa de mortalidade da doenção e utilizando calculos de poisson para chegar ao resultado"
+              title="Dado uma quantidade de infectados este gráfico demonstra a probabilidade de quantos infectados morrerão, levando em consideração dados passados como taxa de mortalidade da doença e utilizando cálculos de poisson para chegar ao resultado"
             />
           </div>
         }
