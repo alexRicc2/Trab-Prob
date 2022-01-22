@@ -36,7 +36,7 @@ const porcentMortes = (media) => {
   return k-1
 };
 
-export default function Contagio() {
+export default function Contagio({infectados, mortos}) {
 
   var total=10;
   const { formState } = useContext(DoencaContext);
@@ -63,8 +63,10 @@ export default function Contagio() {
     var percent=porcentMortes(1)//1% chance de morte
     setDados([{ label: "Qtd. Infectados", data: plot }]);
     console.log("total de infectados: "+total)
+    infectados(total);
     console.log("porcentagem mortes: "+percent)
     console.log("total mortos: "+(percent/100)*total)
+    mortos(Math.trunc((percent/100)*total));
   };
   useEffect( ()=> handleSubmit(formState?.taxa, formState?.tempoAgeVetor),[formState?.taxa, formState?.tempoAgeVetor])
 

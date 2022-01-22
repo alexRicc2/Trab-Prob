@@ -36,6 +36,7 @@
     }
     &__card {
       // max-width:rem;
+      position: relative;
       padding: 2rem 0;
       flex: 1 1 30%;
       h1 {
@@ -47,6 +48,12 @@
         margin-bottom: 1rem;
       }
       height: 10rem;
+
+      &__info{
+        position: absolute;
+        top: 0px;
+        right: 10px
+      }
     }
   }
   &__editar {

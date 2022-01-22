@@ -7,7 +7,7 @@ export default function Chart(props) {
       ></div>
     );
   return (
-    <div style={{ height: "40rem", width: "40rem" }}>
+    <div style={{ minHeight: "40rem", minWidth: "40rem" }}>
       <ReactChart
         data={props.data}
         series={{ type: props.type }}

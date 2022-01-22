@@ -11,7 +11,7 @@ function factor(num) {
 }
 
 const poisson = (media, x) => {
-  return (Math.pow(media, x) * Math.exp(-media)) / factor(x);
+  return ((Math.pow(media, x) * Math.exp(-media)) / factor(x));
 };
 
 export default function Poisson() {

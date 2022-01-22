@@ -9,13 +9,8 @@ export default function Sobre() {
       <Navbar />
       <section className='secaoSobre'>
         <h1 className='page'>Sobre</h1>
-        <p className='title'>Os seus dados blabla informaçoes, a melhor ferramenta blabla</p>
-        <p className='text'>lorem lorem lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at mauris sapien. Vivamus suscipit volutpat mauris molestie tristique. Donec pellentesque nisi eu turpis maximus, non mattis enim luctus. Mauris dictum pellentesque molestie. Donec tempus mauris est, in pharetra nunc posuere vel. Donec vel felis gravida, ullamcorper justo id, interdum neque. </p>
-
-        <p className='text'>lorem lorem lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at mauris sapien. Vivamus suscipit volutpat mauris molestie tristique. Donec pellentesque nisi eu turpis maximus, non mattis enim luctus. Mauris dictum pellentesque molestie. Donec tempus mauris est, in pharetra nunc posuere vel. Donec vel felis gravida, ullamcorper justo id, interdum neque. </p>
-
-        <p className='text'>lorem lorem lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at mauris sapien. Vivamus suscipit volutpat mauris molestie tristique. Donec pellentesque nisi eu turpis maximus, non mattis enim luctus. Mauris dictum pellentesque molestie. Donec tempus mauris est, in pharetra nunc posuere vel. Donec vel felis gravida, ullamcorper justo id, interdum neque. </p>
-
+        <p className='title'>A ferramenta que permite que você analise doenças de forma simples e rápida.</p>
+        <p className='text'>lEsse projeto foi desenvolvido por alunos da UNESP campus São José do Rio Preto para a disciplina de Probabilidade e estatística no ano de 2021. Ele tem como objetivo oferecer uma aplicação web simples e acessível para a análise e simulação dos impactos que doenças podem ter em uma população.</p>
       </section>
       <Footer/>
     </>

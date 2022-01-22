@@ -9,7 +9,7 @@ const fatorial = n => {
   return n
 }
 
-export default function FamiliaBinomial(){
+export default function FamiliaBinomial({children}){
  
 
 
@@ -44,11 +44,12 @@ export default function FamiliaBinomial(){
       } 
     }
 
-    setDados([{ label: "asdasd", data: aux }]);
+    setDados([{ label: "Chances", data: aux }]);
   }
 
   return (
-    <div>
+    <div style={{position: 'relative'}}>
+      {children}
       <Chart data={dados} type="bar" tooltip/>
       <p>Estimativa de infectados após 2 semanas: {estimativaInfectadosPos2semana}</p>
       <Fform onSubmit={handleSubmit}></Fform>

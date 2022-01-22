@@ -87,37 +87,44 @@ export default function NovaAnalise(props) {
       <form onSubmit={handleSubmit}>
         <div className="nova-analise__big-input">
           <label htmlFor="nome">Nome da doença: </label>
-          <input id="nome" value={formState.nome} onChange={handleNameChange}></input>
+          <input 
+          id="nome" 
+          value={formState.nome} 
+          onChange={handleNameChange}
+          ></input>
         </div>
         <div className="nova-analise__inputs">
           <div>
             <label htmlFor="tempo">Tempo que age como vetor (dias)</label>
             <input
-              step="0.0001"
+              step="1"
               id="tempo"
               type="number"
               value={formState.tempoAgeVetor}
               onChange={handleTimeChange}
+              placeholder="Ex: 15 (pessoa infectada por 15 dias)"
             ></input>
           </div>
           <div>
             <label htmlFor="taxa">Taxa de transmissão</label>
             <input
-              step="0.0001"
+              step="0.1"
               id="taxa"
               type="number"
               value={formState.taxa}
               onChange={handleRateChange}
+              placeholder="Ex: 1.7 (R, médias de pessoas que será transmitido)"
             ></input>
           </div>
           <div>
             <label htmlFor="mortalidade">Mortalidade (porcentagem)</label>
             <input
-              step="0.0001"
+              step="0.1"
               id="mortalidade"
               type="number"
               value={formState.mortalidade}
               onChange={handleDeathChange}
+              placeholder="Ex: 1.2 (Chances de morrer com a doença)"
             ></input>
           </div>
           <div>
@@ -125,11 +132,12 @@ export default function NovaAnalise(props) {
               Tempo para se tornar vetor após infecção
             </label>
             <input
-              step="0.0001"
+              step="1"
               id="tempo-vetor"
               type="number"
               value={formState.tempoTornarVetor}
               onChange={handleInfectionTimeChange}
+              placeholder="Ex: 8 (8 dias para começar a transmitir)"
             ></input>
           </div>
         </div>

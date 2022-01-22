@@ -3,7 +3,9 @@
 * {
   box-sizing: border-box;
 }
-
+::placeholder{
+  font-size: 1rem;
+}
 html {
   font-family: 'Roboto Mono', monospace;
   color:#474747;
