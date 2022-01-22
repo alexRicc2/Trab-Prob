@@ -14,10 +14,10 @@ const Label = props => {
     } = props;
 
     return (
-        <div className="inline-flex resultados__cards__card__info">
+        <div className="inline-flex resultados__cards__card__info" >
             <FormLabel style={{marginRight: "5px"}}>{label}</FormLabel>
             <Tooltip
-                title={<div style={{ whiteSpace: "pre-line" }}>{title}</div>}
+                title={<div style={{ whiteSpace: "pre-line", fontSize: "0.95rem", lineHeight: "1.2"}}>{title}</div>}
                 arrow
                 placement={placement}
                 hidden={!title}
