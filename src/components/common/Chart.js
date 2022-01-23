@@ -3,11 +3,11 @@ export default function Chart(props) {
   if (props.data.length === 0)
     return (
       <div
-        style={{ height: "40rem", width: "40rem", backgroundColor: "#dfdfdf" }}
+        style={{ height: "40rem", width: "100%", backgroundColor: "#dfdfdf" }}
       ></div>
     );
   return (
-    <div style={{ minHeight: "40rem", minWidth: "40rem" }}>
+    <div style={{ minHeight: "40rem" }}>
       <ReactChart
         data={props.data}
         series={{ type: props.type }}
