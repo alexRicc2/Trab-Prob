@@ -45,7 +45,7 @@ export function Fform({onSubmit}){
       <label htmlFor="contaminados">Contaminados</label>
       <input id="contaminados" type="number" onChange={handleContaminados} value={contaminados}/>
       </div>
-      <div>
+      <div className="resultados__novos-dados__familia">
       <label htmlFor="familia">Tamanho da familia</label>
       <input id="familia" type="number" onChange={handleFamilia} value={familia}/>
       </div>
