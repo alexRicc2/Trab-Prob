@@ -142,6 +142,7 @@ export default function NovaAnalise(props) {
           </div>
         </div>
         <Button type="submit">Concluído</Button>
+        <p style={{opacity: 0.78,textAlign: "center"}}>O site pode demorar a carregar devido ao processamento da simulação.</p>
       </form>
       <Footer />
     </section>
