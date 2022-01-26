@@ -1,7 +1,12 @@
 .secaoSobre{
-  padding: 2.25rem;
-  text-align: center;
-  min-height: 90vh;
+  height:100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  &__content{
+    padding: 2.25rem;
+    text-align: center;
+  }
   .page{
     color: #70c7a7;
     margin-bottom: 3rem;

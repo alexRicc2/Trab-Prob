@@ -44,7 +44,7 @@ export default function Resultados(props) {
           </Card>
           <Card className="resultados__cards__card obitos">
             <h2>Óbitos</h2>
-            <h1>{mortos}</h1>
+            <h1>{parseInt((formState?.mortalidade/100)*infectados)}</h1>
             <Label
               title="Estimativa de óbitos após 1 ano do contágio da doença"
             />
@@ -85,7 +85,7 @@ export default function Resultados(props) {
           </option>
         </select>
         {grafico === 'progressao' &&
-          <div style={{ position: 'relative' }}>
+          <div style={{ position: 'relative', width:"100%" }}>
             <Contagio
               mortos={setMortos}
               infectados={setInfectados}
@@ -97,7 +97,7 @@ export default function Resultados(props) {
         }
         {
           grafico === 'sala fechada' &&
-          <div style={{ position: 'relative' }}>
+          <div style={{ position: 'relative', width:"100%" }}>
           <FamiliaBinomial 
           />
           <Label
@@ -107,7 +107,7 @@ export default function Resultados(props) {
         }
         {
           grafico === 'poisson' &&
-          <div style={{ position: 'relative' }}>
+          <div style={{ position: 'relative', width:"100%" }}>
           <Poisson />
           <Label
               title="Dado uma quantidade de infectados este gráfico demonstra a probabilidade de quantos infectados morrerão, levando em consideração dados passados como taxa de mortalidade da doença e utilizando cálculos de poisson para chegar ao resultado"
